@@ -13,7 +13,11 @@ router.get('/', (req, res) => {
 
 router.post('/', json, (req, res) => {
   // Add a new person to the queue.
-  const { person } = req.body;
+  const [ person ] = req.body;
+ 
+  if(!person) {
+    return res.send(`${person} is missing`)
+  }
   const newPerson = People.enqueue(person)
   res.json(newPerson).status(200);
 })

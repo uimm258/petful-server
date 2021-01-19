@@ -1,7 +1,7 @@
 class _Node {
-  constructor(data, next){
+  constructor(data){
     this.data = data
-    this.next = next
+    this.next = null
   }
 }
 
@@ -33,14 +33,14 @@ class Queue {
       return
     }
 
-    const node = this.first
+    const node = this.first.data
     this.first = this.first.next
 
-    if(node === this.last){
+    if(!this.first){
       this.last === null;
     }
 
-    return node.data
+    return node
   }
 
   show() {
@@ -58,8 +58,8 @@ class Queue {
       return false
     }
     
-    let newNode = this.first
     let array = []
+    let newNode = this.first
 
     while(newNode){
       array.push(newNode.data)
