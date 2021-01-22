@@ -25,6 +25,8 @@ class Queue {
     }
     
     this.last = node
+    
+    return value
   }
 
   dequeue() {
