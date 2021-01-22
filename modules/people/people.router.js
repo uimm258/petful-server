@@ -22,4 +22,9 @@ router.post('/', json, (req, res) => {
   res.json(newPerson).status(200);
 })
 
+router.delete('/', json, (req, res) => {
+  const person = People.dequeue()
+  return res.json(person).status(200)
+})
+
 module.exports = router
